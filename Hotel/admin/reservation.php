@@ -131,17 +131,19 @@ include('includes/header.php');
 							   <div class="form-group">
                                             <label>Nationality*</label>
                                             <label class="radio-inline">
-                                                <input type="radio" id="hide" name="nation"  value="Namibian" checked="">Namibian
+                                                <input type="radio" id="ournation" name="nation"  value="Namibian" checked="">Namibian
                                             </label>
                                       
                                    <script>
-                             $('#hide').toggle(function(){
-                                 
+                             $('#ournation').toggle(function(){
+                                 $('#hiding').hide();
+                             }, function(){
+                                 $('#othernation')
                              });
                                    
                                    </script>
                                             <label class="radio-inline">
-                                                <input type="radio" name="nation"  value="Non Namibian ">Non Namibian 
+                                                <input type="radio" id="othernation" name="nation"  value="Non Namibian ">Non Namibian 
                                             </label>
                          
                                 </div>
@@ -152,7 +154,7 @@ include('includes/header.php');
 								?>
 								<div class="form-group">
                                             <label>Passport Country*</label>
-                                            <select name="country" class="form-control" required>
+                                            <select id="hiding" name="country" class="form-control" required>
 												<option value selected ></option>
                                                 <?php
 												foreach($countries as $key => $value):
