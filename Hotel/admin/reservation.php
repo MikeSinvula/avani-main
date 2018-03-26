@@ -137,8 +137,9 @@ include('includes/header.php');
                                    <script>
                              $('#ournation').toggle(function(){
                                  $('#hiding').hide();
-                             }, function(){
-                                 $('#othernation')
+                             });
+                                       $('#othernation')function(){
+                                 $('#hiding').show();
                              });
                                    
                                    </script>
