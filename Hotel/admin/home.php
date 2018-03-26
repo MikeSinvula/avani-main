@@ -56,7 +56,11 @@ include('includes/header.php');
                         <a href="payment.php"><i class="fa fa-qrcode"></i> Payment</a>
                     </li>
                    <li>
-                        <a  href="profit.php"><i class="fa fa-qrcode"></i> Profit</a>
+                        <a  href="profit.php"><i class="fa fa-qrcode"></i> Revenue</a>
+                    </li>
+                    
+                    <li>
+                        <a  href="birth.php"><i class="fa fa-qrcode"></i>Upcoming Birthdays</a>
                     </li>
                     <li>
                         <a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>

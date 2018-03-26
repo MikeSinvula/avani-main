@@ -118,6 +118,7 @@ ob_start();
 											$id = $row['id'];
 											$us = $row['username'];
 											$ps = $row['password'];
+                                            $crypt = md5($ps);
 											if($id % 2 ==0 )
 											{
 												echo"<tr class='gradeC'>

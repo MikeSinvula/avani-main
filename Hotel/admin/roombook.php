@@ -123,7 +123,11 @@ include('sms.php')
                         <a href="payment.php"><i class="fa fa-qrcode"></i> Payment</a>
                     </li>
 					<li>
-                        <a  href="profit.php"><i class="fa fa-qrcode"></i> Profit</a>
+                        <a  href="profit.php"><i class="fa fa-qrcode"></i> Revenue</a>
+                    </li>
+                    
+                     <li>
+                        <a href="birth.php"><i class="fa fa-qrcode"></i>Upcoming Birthdays</a>
                     </li>
                     
                     <li>

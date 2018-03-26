@@ -80,9 +80,12 @@ if(!isset($_SESSION["user"]))
                         <a  href="payment.php"><i class="fa fa-qrcode"></i> Payment</a>
                     </li>
 					 <li>
-                        <a style="background-color:purple"  href="profit.php"><i class="fa fa-qrcode"></i> Profit</a>
+                        <a style="background-color:purple"  href="#"><i class="fa fa-qrcode"></i> Revenue</a>
                     </li>
                     
+                     <li>
+                        <a href="birth.php"><i class="fa fa-qrcode"></i>Upcoming Birthdays</a>
+                    </li>
                     <li>
                         <a href="logout.php" ><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>

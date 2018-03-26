@@ -131,8 +131,15 @@ include('includes/header.php');
 							   <div class="form-group">
                                             <label>Nationality*</label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="nation"  value="Namibian" checked="">Namibian
+                                                <input type="radio" id="hide" name="nation"  value="Namibian" checked="">Namibian
                                             </label>
+                                      
+                                   <script>
+                             $('#hide').toggle(function(){
+                                 
+                             });
+                                   
+                                   </script>
                                             <label class="radio-inline">
                                                 <input type="radio" name="nation"  value="Non Namibian ">Non Namibian 
                                             </label>

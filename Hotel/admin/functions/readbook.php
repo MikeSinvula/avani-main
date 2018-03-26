@@ -3,7 +3,8 @@
 $tsql = "select * from roombook";
 $tre = mysqli_query($con,$tsql);
 while($trow=mysqli_fetch_array($tre) ){	
-$co =$trow['stat'];    
+$co =$trow['stat']; 
+    $de = $trow['stat'];
 if($co=="Not Confirm"){
 echo"<tr>
 <th>".$trow['id']."</th>
@@ -17,7 +18,7 @@ echo"<tr>
 <th>".$trow['cout']."</th>
 <th>".$trow['stat']."</th>												
 												
-<th><a href='roombook.php?rid=".$trow['id']." ' class='btn btn-primary'>Action</a></th></tr>";
+<th><a href='roombook.php?rid=".$trow['id']." ' class='btn btn-success'>Action</a></th></tr>";
 										
 }	
 									

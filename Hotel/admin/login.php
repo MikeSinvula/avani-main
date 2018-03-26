@@ -35,8 +35,8 @@
 
           <fieldset class="clearfix">
 
-            <p><span class="fontawesome-user"></span><input type="text"  name="user" value="Username" onBlur="if(this.value == '') this.value = 'Username'" onFocus="if(this.value == 'Username') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
-            <p><span class="fontawesome-lock"></span><input type="password" name="pass"  value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
+            <p><span style="background-color:purple; color:white" class="fontawesome-user"></span><input style="background-color:white" type="text"  name="user" value="Username" onBlur="if(this.value == '') this.value = 'Username'" onFocus="if(this.value == 'Username') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
+            <p><span style="background-color:purple; color:white" class="fontawesome-lock"></span><input style="background-color:white" type="password" name="pass"  value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
             <p><input type="submit" style="background-color:purple" name="sub"  value="Login"></p>
               <h5><a href="register.php" style="color:white font-weight:bolder; font-family:verdana">Not a member yet?</a></h5>
               <h5><a href="../index.php" style="color:white font-weight:bolder; font-family:verdana">Back to home</a></h5>
