@@ -60,9 +60,7 @@ include('includes/header.php');
 					<li>
                         <a style="background-color:#b59146" href="#"><i class="fa fa-bar-chart-o"></i> Book reservation</a>
                     </li>
-                    <li>
-                        <a href="viewreservation.php"><i class="fa fa-bar-chart-o"></i> View reservation</a>
-                    </li>
+                    
                    
                     <li>
                         <a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>

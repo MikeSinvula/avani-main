@@ -44,9 +44,7 @@ ob_start();
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="settings.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
+                       
                         <li class="divider"></li>
                         <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
@@ -63,7 +61,7 @@ ob_start();
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a style="background-color:#b59146" href="reservation.php"><i class="fa fa-dashboard"></i>User Dashboard</a>
+                        <a style="background-color:#b59146" href="member.php"><i class="fa fa-dashboard"></i>User Dashboard</a>
                     </li>
 					
 					
