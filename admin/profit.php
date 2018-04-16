@@ -83,9 +83,6 @@ if(!isset($_SESSION["user"]))
                         <a style="background-color:purple"  href="#"><i class="fa fa-qrcode"></i> Revenue</a>
                     </li>
                     
-                     <li>
-                        <a href="birth.php"><i class="fa fa-qrcode"></i>Upcoming Birthdays</a>
-                    </li>
                     <li>
                         <a href="logout.php" ><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
