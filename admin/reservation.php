@@ -3,7 +3,8 @@
 session_start(); 
 include('db.php');
 include('points.php');
-include('sms.php');
+require_once ('functions/smsfunction.php');
+
 
 
 if(!isset($_SESSION["user"]))
@@ -61,6 +62,7 @@ include('includes/header.php');
                         <a style="background-color:#b59146" href="#"><i class="fa fa-bar-chart-o"></i> Book reservation</a>
                     </li>
                     
+
                    
                     <li>
                         <a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -208,12 +210,12 @@ include('includes/header.php');
                                             <select name="nroom" class="form-control" required>
 												<option value selected ></option>
                                                 <option value="1">1</option>
-                                              <!--  <option value="2">2</option>
+                                                <option value="2">2</option>
 												<option value="3">3</option>
 												<option value="4">4</option>
 												<option value="5">5</option>
 												<option value="6">6</option>
-												<option value="7">7</option> -->
+												<option value="7">7</option> 
                                             </select>
                               </div>
 							 
@@ -256,10 +258,10 @@ include('includes/header.php');
 							<input type="hidden" name="code" value="<?php echo $Random_code; ?>" />
 						<input type="submit" name="submit" value="Submit" class="btn btn-success">
 						<?php
-                        
+
                                 	if(isset($_POST['submit']))
 							{ 
-							$points=0.5;
+
 							
 							$code1=$_POST['code1'];
 							$code=$_POST['code']; 
@@ -292,74 +294,22 @@ include('includes/header.php');
                                         $lname= $_POST['lname'];
                                         $email= $_POST['email'];
 										$new ="Not Confirm";
-										$newUser="INSERT INTO `roombook`(`Title`, `FName`, `LName`, `Email`, `National`, `Country`, `Phone`, `TRoom`, `Bed`, `NRoom`, `Meal`, `cin`, `cout`,`stat`,`nodays`) VALUES ('$_POST[title]','$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[nation]','$_POST[country]','$_POST[phone]','$_POST[troom]','$_POST[bed]','$_POST[nroom]','$_POST[meal]','$_POST[cin]','$_POST[cout]','$new',datediff('$_POST[cout]','$_POST[cin]'))";
+										$newUser="INSERT INTO `roombook`(`Title`, `FName`, `LName`, `Email`, `National`, `Country`, `Phone`, `TRoom`, `Bed`, `NRoom`, `Meal`, `cin`, `cout`,`stat`,`nodays`)
+ VALUES ('$_POST[title]','$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[nation]','$_POST[country]','$_POST[phone]','$_POST[troom]','$_POST[bed]','$_POST[nroom]','$_POST[meal]','$_POST[cin]','$_POST[cout]','$new',datediff('$_POST[cout]','$_POST[cin]'))";
                                        
 
 
     
 										if (mysqli_query($con,$newUser))
 										{
-										echo "<script type='text/javascript'> alert('An sms has been sent to you regarding your booking, Thank you for choosing Avani Hotel & Resorts')</script>";
-                                         $points = $points +0.5;
-                                            $message = stripcslashes("Your Booking application has been sent for further processing, Thank you for choosing Avani Hotel & Resorts ");                                          
-
-
-
-     $status = httpRequest("http://41.205.135.19:9501/api?action=sendmessage&username=admin&password=Lex@Admin2007&recipient=".urlencode($cell)."&messagetype=SMS:TEXT&messagedata=".urlencode($message));
-          $to = $email;
-         $subject = "Booking Reservation";
-         
-         $message = "<b>Your Booking application has been sent for further processing,</b>";
-         $message .= "<h1>Thank you for choosing Avani Hotel & Resorts.</h1>";
-         
-         $header = "From:avani@hotel.com \r\n";
-         $header .= "Cc:booking@services.com \r\n";
-         $header .= "MIME-Version: 1.0\r\n";
-         $header .= "Content-type: text/html\r\n";
-         
-         $retval = mail ($to,$subject,$message,$header);
-         
-         if( $retval == true ) {
-            echo "Message sent successfully...";
-         }else {
-            echo "Message could not be sent...";
-         }
-    //$to = $email;
-     //$from = "avanihotel@resorts.na";
-     //$subject ="Reservation Booking";
-     //$messages = "Hello '$username',\n Your room no. ".$roomNumber." \n";
-     //$messages = "has been successfully booked, thank you for choosing AVANI\n";
-     //if(mail($to,$from,$messages)){
-         //echo "Message have been successfully sent!";
- //}else{
-       //  echo "Error occured, message could not be sent!";
-    // }
-
-if(!empty($_POST)){
-	extract($_POST);
-	$valid = false;
 	
-   
-   
-    
+								
+//											echo "<script type='text/javascript'> alert('Your Booking application has been sent')</script>";
+//											$message = "Booking Request successfully sent for further processing, Confirmation Message will be sent to you shortly ";
+//                                            $status = httpRequest("http://41.205.135.19:9501/api?action=sendmessage&username=admin&password=Lex@Admin2007&recipient=".urlencode($cell)."&messagetype=SMS:TEXT&messagedata=".urlencode($message));
 
-    //$to = $email;
-    //$from = "support@lexconsult.na";
-    //$subject ="Room Booking";
-    //$messages = "Hello '$fname','$lname',\n Your room no. ".$roomNumber." \n";
-    //$messages = "has been successfully booked, thank you for choosing AVANI\n";
-    // if(mail($to,$from,$messages)){
-      //   echo "Message have been successfully sent!";
-    //}else{
-        // echo "Error occured, message could not be sent!";
-    // }
-
-}
-
-
-
-											
-										
+                                                send_sms("Booking Request successfully sent for further processing, Confirmation Message will be sent to you shortly ",'Your Booking application has been sent',$cell);
+										}
 										else
 										{
 											echo "<script type='text/javascript'> alert('Error adding user in database')</script>";
@@ -369,12 +319,9 @@ if(!empty($_POST)){
 
 							$msg="Your code is correct";
 							}
-                                    }
-                                    }
+							}
 							?>
-      
-       
-     
+						</form>
 							
                     </div>
                 </div>
@@ -382,9 +329,8 @@ if(!empty($_POST)){
            
                 
                 </div>
-                    </div>
                     
-            </div>
+            
 				
 					</div>
 			 <!-- /. PAGE INNER  -->
@@ -392,10 +338,18 @@ if(!empty($_POST)){
          <!-- /. PAGE WRAPPER  -->
         </div>
      <!-- /. WRAPPER  -->
-    <?php
-    include('includes/scripts.php');    
-    ?>
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- Bootstrap Js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+      <!-- Custom Js -->
+    <script src="assets/js/custom-scripts.js"></script>
     
    
 </body>
 </html>
+
+
