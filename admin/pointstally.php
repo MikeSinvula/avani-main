@@ -13,9 +13,9 @@ $today = date("m.d.y");
         $lastname = $row['last_name'];
         $cell= $row['phone'];
         
-       // $message ='Avani Hotel and Resorts Wish you a Happy Birthday '.$first_name.''.$last_name;
-
-     //$status = httpRequest("http://41.205.135.19:9501/api?action=sendmessage&username=admin&password=Lex@Admin2007&recipient=".urlencode($cell)."&messagetype=SMS:TEXT&messagedata=".urlencode($message));
+      //  $message ='Avani Hotel and Resorts Wish you a Happy Birthday '.$first_name.''.$last_name;
+       // echo 'Todays is'.$first_name.' '.$lastname.' birthday';
+    // $status = httpRequest("http://41.205.135.19:9501/api?action=sendmessage&username=admin&password=Lex@Admin2007&recipient=".urlencode($cell)."&messagetype=SMS:TEXT&messagedata=".urlencode($message));
                         
     } 
 
@@ -69,15 +69,15 @@ include('includes/header.php');
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a style="background-color:#b59146" href="#"><i class="fa fa-dashboard"></i> Status</a>
+                        <a  href="member.php"><i class="fa fa-dashboard"></i> Status</a>
                     </li>
                     
 					<li>
                         <a href="reservation.php"><i class="fa fa-bar-chart-o"></i> Book reservation</a>
                     </li>
-
-                    <li>
-                        <a href="weeklynews.php"><i class="fa fa-bar-chart-o"></i> Weekly news</a>
+                    
+                     <li>
+                        <a style="background-color:#b59146" href="#"><i class="fa fa-bar-chart-o"></i>Points</a>
                     </li>
                     
                     
@@ -103,7 +103,7 @@ include('includes/header.php');
                     <div class="col-md-12">
                         <h1 class="page-header">
                              <img src="assets/img/avani.png" style="height:100px;"> <small>Home </small><br>
-
+                            <small>Remaining balance: <?php echo $points;?></small>
                         </h1>
                         <h2>Earn Points Now</h2>
                         <h5>Don't miss out on a chance to earn points when you book in advance</h5>

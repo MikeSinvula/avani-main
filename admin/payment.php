@@ -10,7 +10,7 @@ if(!isset($_SESSION["user"]))
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AVANI HOTEL &amp;Casino</title>
+    <title>AVANI HOTEL &amp;Resorts</title>
     <link rel="icon" href="assets/img/avani.png">
 	<!-- Bootstrap Styles-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
@@ -65,6 +65,10 @@ if(!isset($_SESSION["user"]))
 
                     <li>
                         <a href="home.php"><i class="fa fa-dashboard"></i> Status</a>
+                    </li>
+
+                    <li>
+                        <a href="messages.php"><i class="fa fa-desktop"></i> News Letters</a>
                     </li>
                    
 					<li>

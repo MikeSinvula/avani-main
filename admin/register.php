@@ -38,9 +38,9 @@
         $mylastname = $row['last_name'];
         $myphone= $row['phone'];
         
-        $message ='Avani Hotel and Resorts Wish you a Happy Birthday '.$myfirstname.''.$mylast_name;
+       // $message ='Avani Hotel and Resorts Wish you a Happy Birthday '.$myfirstname.''.$mylast_name;
         echo 'Todays is'.$first_name.' '.$lastname.' birthday'; 
-     $status = httpRequest("http://41.205.135.19:9501/api?action=sendmessage&username=admin&password=Lex@Admin2007&recipient=".urlencode($myphone)."&messagetype=SMS:TEXT&messagedata=".urlencode($message));
+     //$status = httpRequest("http://41.205.135.19:9501/api?action=sendmessage&username=admin&password=Lex@Admin2007&recipient=".urlencode($myphone)."&messagetype=SMS:TEXT&messagedata=".urlencode($message));
                         
     }    
       

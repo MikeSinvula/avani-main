@@ -7,6 +7,7 @@ if(!isset($_SESSION["user"]))
 ?> 
 <?php
 include('includes/header.php');
+require_once ('functions/smsfunction.php');
 ?>
 <body>
     <div id="wrapper" style="background-color:#b59146">
@@ -48,16 +49,22 @@ include('includes/header.php');
                     <li>
                         <a style="background-color:purple" href="home.php"><i class="fa fa-dashboard"></i> Status</a>
                     </li>
-                    
-					<li>
-                        <a style="background-color:purple" href="roombook.php"><i class="fa fa-bar-chart-o"></i> Room Booking</a>
+                     <li>
+                        <a href="messages.php"><i class="fa fa-desktop"></i> News Letters</a>
                     </li>
+					<li>
+                        <a  href="roombook.php"><i class="fa fa-bar-chart-o"></i> Room Booking</a>
+                    </li>
+                    
+
+                    
                     <li>
                         <a href="payment.php"><i class="fa fa-qrcode"></i> Payment</a>
                     </li>
                    <li>
                         <a  href="profit.php"><i class="fa fa-qrcode"></i> Revenue</a>
                     </li>
+                    
                     
                    
                     <li>
@@ -170,7 +177,8 @@ include('includes/header.php');
                                     </div>
                                 </div>
 								<?php
-								
+								include('points.php');
+
 								$rsql = "SELECT * FROM `roombook`";
 								$rre = mysqli_query($con,$rsql);
 								$r =0;

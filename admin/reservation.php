@@ -61,8 +61,10 @@ include('includes/header.php');
 					<li>
                         <a style="background-color:#b59146" href="#"><i class="fa fa-bar-chart-o"></i> Book reservation</a>
                     </li>
-                    
 
+                    <li>
+                        <a href="weeklynews.php"><i class="fa fa-bar-chart-o"></i> Weekly news</a>
+                    </li>
                    
                     <li>
                         <a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -134,15 +136,7 @@ include('includes/header.php');
                                                 <input type="radio" id="ournation" name="nation"  value="Namibian" checked="">Namibian
                                             </label>
                                       
-                                   <script>
-                             $('#ournation').toggle(function(){
-                                 $('#hiding').hide();
-                             });
-                                       $('#othernation')function(){
-                                 $('#hiding').show();
-                             });
-                                   
-                                   </script>
+
                                             <label class="radio-inline">
                                                 <input type="radio" id="othernation" name="nation"  value="Non Namibian ">Non Namibian 
                                             </label>
@@ -267,7 +261,7 @@ include('includes/header.php');
 							$code=$_POST['code']; 
 							if($code1!="$code")
 							{
-							$msg="Invalide code"; 
+							$msg="Invalid code";
 							}
 							else
 							{
@@ -295,7 +289,7 @@ include('includes/header.php');
                                         $email= $_POST['email'];
 										$new ="Not Confirm";
 										$newUser="INSERT INTO `roombook`(`Title`, `FName`, `LName`, `Email`, `National`, `Country`, `Phone`, `TRoom`, `Bed`, `NRoom`, `Meal`, `cin`, `cout`,`stat`,`nodays`)
- VALUES ('$_POST[title]','$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[nation]','$_POST[country]','$_POST[phone]','$_POST[troom]','$_POST[bed]','$_POST[nroom]','$_POST[meal]','$_POST[cin]','$_POST[cout]','$new',datediff('$_POST[cout]','$_POST[cin]'))";
+     VALUES ('$_POST[title]','$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[nation]','$_POST[country]','$_POST[phone]','$_POST[troom]','$_POST[bed]','$_POST[nroom]','$_POST[meal]','$_POST[cin]','$_POST[cout]','$new',datediff('$_POST[cout]','$_POST[cin]'))";
                                        
 
 
@@ -309,6 +303,9 @@ include('includes/header.php');
 //                                            $status = httpRequest("http://41.205.135.19:9501/api?action=sendmessage&username=admin&password=Lex@Admin2007&recipient=".urlencode($cell)."&messagetype=SMS:TEXT&messagedata=".urlencode($message));
 
                                                 send_sms("Booking Request successfully sent for further processing, Confirmation Message will be sent to you shortly ",'Your Booking application has been sent',$cell);
+                                            send_sms("Congratulations, your are now in the running for qualifying for points should your reservation be accepted, Ranging from titanium = '$titanium', Platnium = '$platnium',
+     Gold = '$gold', Silver = '$silver', Bronze = '$bronze'","Congratulations, your are now in the running for qualifying for points should your reservation be accepted, Ranging from titanium = '$titanium', Platnium = '$platnium',
+     Gold = '$gold', Silver = '$silver', Bronze = '$bronze'",$cell);
 										}
 										else
 										{

@@ -1,4 +1,5 @@
-<?php  
+<?php
+require_once ('functions/smsfunction.php');
 session_start();  
 if(!isset($_SESSION["user"]))
 {
@@ -10,7 +11,7 @@ if(!isset($_SESSION["user"]))
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SUNRISE HOTEL</title>
+    <title>Avani Hotel &amp; Resorts</title>
 	<!-- Bootstrap Styles-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FontAwesome Styles-->
@@ -25,9 +26,9 @@ if(!isset($_SESSION["user"]))
     <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-    <div id="wrapper">
+    <div id="wrapper" style="background-color:#b59146">
         
-        <nav class="navbar navbar-default top-navbar" role="navigation">
+        <nav style="background-color:#b59146" class="navbar navbar-default top-navbar" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -35,15 +36,15 @@ if(!isset($_SESSION["user"]))
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="home.php"><?php echo $_SESSION["user"]; ?> </a>
+                <a style="background-color:#b59146" class="navbar-brand" href="home.php"><?php echo $_SESSION["user"]; ?> </a>
             </div>
 
-            <ul class="nav navbar-top-links navbar-right">
+            <ul class="nav navbar-top-links navbar-right" style="background-color:#b59146">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                    <a style="background-color:#b59146" class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
-                    <ul class="dropdown-menu dropdown-user">
+                    <ul class="dropdown-menu dropdown-user" style="background-color:#b59146">
                         <li><a href="usersetting.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
                         <li><a href="settings.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
@@ -58,15 +59,15 @@ if(!isset($_SESSION["user"]))
             </ul>
         </nav>
         <!--/. NAV TOP  -->
-        <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
+        <nav style="background-color:#b59146" class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse" >
+                <ul class="nav" id="main-menu" >
 
                     <li>
                         <a href="home.php"><i class="fa fa-dashboard"></i> Status</a>
                     </li>
                     <li>
-                        <a class="active-menu" href="messages.php"><i class="fa fa-desktop"></i> News Letters</a>
+                        <a style="background-color:purple"  href="messages.php"><i class="fa fa-desktop"></i> News Letters</a>
                     </li>
 					<li>
                         <a href="roombook.php"><i class="fa fa-bar-chart-o"></i>Room Booking</a>
@@ -75,7 +76,7 @@ if(!isset($_SESSION["user"]))
                         <a href="Payment.php"><i class="fa fa-qrcode"></i> Payment</a>
                     </li>
                     <li>
-                        <a  href="profit.php"><i class="fa fa-qrcode"></i> Profit</a>
+                        <a  href="profit.php"><i class="fa fa-qrcode"></i> Revenue</a>
                     </li>
                     <li>
                         <a href="logout.php" ><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -92,8 +93,8 @@ if(!isset($_SESSION["user"]))
             <div id="page-inner">
 			 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-header">
-                           News letters<small> panel</small>
+                        <h1 class="page-header" style="color: #b59146"><b>
+                                <img src="assets/img/avani.png" style="height:100px;"> News</b> <small> panel</small>
                         </h1>
                     </div>
                 </div> 
@@ -102,19 +103,20 @@ if(!isset($_SESSION["user"]))
 				include('db.php');
 				$mail = "SELECT * FROM `contact`";
 				$rew = mysqli_query($con,$mail);
-				
+
 			   ?>
 				 <div class="row">
                 <div class="col-md-12">
                     <div class="jumbotron">
-                        <h3>Send The News Letters to Followers</h3>
+                        <h3 style="color: #b59146"><b>Send News Regarding Avani Bookings to Followers</b></h3>
 						<?php
+
 						while($rows = mysqli_fetch_array($rew))
 						{
 								$app=$rows['approval'];
 								if($app=="Allowed")
 								{
-									
+
 								}
 						}
 						?>
@@ -162,13 +164,16 @@ if(!isset($_SESSION["user"]))
                             </div>
                         </div>
 							<?php
+
 							if(isset($_POST['log']))
-							{	
+							{
+							    $news= $_POST['news'];
 								$log ="INSERT INTO `newsletterlog`(`title`, `subject`, `news`) VALUES ('$_POST[title]','$_POST[subject]','$_POST[news]')";
+
 								if(mysqli_query($con,$log))
 								{
-									echo '<script>alert("New Room Added") </script>' ;
-											
+									echo '<script>alert("News letter successfully sent") </script>' ;
+
 								}
 								
 							}

@@ -17,3 +17,9 @@
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
+
+<?php
+
+require_once ('../functions/smsfunction.php');
+
+?>

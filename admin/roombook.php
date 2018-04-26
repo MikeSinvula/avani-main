@@ -1,14 +1,15 @@
-<?php 
-
+<?php
+include ('db.php');
+require_once ('functions/smsfunction.php');
 session_start();  
 if(!isset($_SESSION["user"]))
 {
  header("location:index.php");
 }
 ?> 
-<?php
-include('sms.php')
-?>
+
+
+
 <?php
 		if(!isset($_GET["rid"]))
 		{
@@ -17,7 +18,7 @@ include('sms.php')
 		}
 		else {
 				$curdate=date("Y/m/d");
-				include ('db.php');
+
 				$id = $_GET['rid'];
 				
 				
@@ -117,7 +118,7 @@ include('sms.php')
                     </li>
                    
 					<li>
-                        <a style="background-color:#b59146" href="roombook.php"><i class="fa fa-bar-chart-o"></i> Room Booking</a>
+                        <a style="background-color:purple" href="roombook.php"><i class="fa fa-bar-chart-o"></i> Room Booking</a>
                     </li>
                     <li>
                         <a href="payment.php"><i class="fa fa-qrcode"></i> Payment</a>
@@ -126,9 +127,7 @@ include('sms.php')
                         <a  href="profit.php"><i class="fa fa-qrcode"></i> Revenue</a>
                     </li>
                     
-                     <li>
-                        <a href="birth.php"><i class="fa fa-qrcode"></i>Upcoming Birthdays</a>
-                    </li>
+                     
                     
                     <li>
                         <a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -464,6 +463,7 @@ include('sms.php')
 </html>
 
 <?php
+
 						if(isset($_POST['co']))
 						{	
 							$st = $_POST['conf'];
@@ -499,20 +499,20 @@ include('sms.php')
 												 $type_of_room = 0;       
 														if($troom=="Superior Room")
 														{
-															$type_of_room = 320;
+															$type_of_room = 3200;
 														
 														}
 														else if($troom=="Deluxe Room")
 														{
-															$type_of_room = 220;
+															$type_of_room = 2200;
 														}
 														else if($troom=="Guest House")
 														{
-															$type_of_room = 180;
+															$type_of_room = 1800;
 														}
 														else if($troom=="Single Room")
 														{
-															$type_of_room = 150;
+															$type_of_room = 1500;
 														}
 														
 														
@@ -559,7 +559,7 @@ include('sms.php')
 														
 														$ttot = $type_of_room * $days * $nroom;
 														$mepr = $type_of_meal * $days;
-														$btot = $type_of_bed *$days;
+														$btot = $type_of_bed * $days;
 														
 														$fintot = $ttot + $mepr + $btot ;
 															
@@ -571,6 +571,9 @@ include('sms.php')
 															$rpsql = "UPDATE `room` SET `place`='$notfree',`cusid`='$id' where bedding ='$bed' and type='$troom' ";
 															if(mysqli_query($con,$rpsql))
 															{
+                                                                //$messages = stripcslashes("Booking successfully Confirmed");
+                                                                send_sms("Your Booking Application has successfully been Confirmed ",'Booking successfully Confirmed',$cell);
+                                                                
 															echo "<script type='text/javascript'> alert('Booking successfully Confirmed. ')</script>";
                                                             $status = httpRequest("http://41.205.135.19:9501/api?action=sendmessage&username=admin&password=Lex@Admin2007&recipient=".urlencode($cell)."&messagetype=SMS:TEXT&messagedata=".urlencode($messages));
 															echo "<script type='text/javascript'> window.location='roombook.php'</script>";
