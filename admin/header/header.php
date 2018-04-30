@@ -20,6 +20,6 @@
 
 <?php
 
-require_once ('../functions/smsfunction.php');
+
 
 ?>
