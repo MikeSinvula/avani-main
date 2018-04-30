@@ -168,7 +168,7 @@ include('includes/invoice.php');
 					<tr>
 						<td><span ><?php echo $meal; ?>  </span></td>
 						<td><span ><?php echo $days; ?></span></td>
-						<td><span data-prefix>N$</span><span ><?php  echo  $type_of_meals;p ?></span></td>
+						<td><span data-prefix>N$</span><span ><?php  echo  $type_of_meals; ?></span></td>
 						<td><span ><?php echo $nroom;?> </span></td>
 						<td><span data-prefix>N$</span><span><?php echo $mepr; ?></span></td>
 					</tr>
