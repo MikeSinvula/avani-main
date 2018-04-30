@@ -8,7 +8,7 @@
  ?>
 <?php
    include('db.php');
-  include('sms.php');
+
 
    
    if($_SERVER["REQUEST_METHOD"] == "POST") {
