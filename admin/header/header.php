@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Avani Administrator	</title>
+    <title>Avani ADMINISTRATOR	</title>
     <link rel="icon" href="assets/img/avani.png">
     <!-- Bootstrap Styles-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
