@@ -107,7 +107,7 @@ include('includes/header.php');
                         </h1>
                         <h2>Earn Points Now</h2>
                         <h5>Don't miss out on a chance to earn points when you book in advance</h5>
-                        <img src="assets/img/cover1.jpg" style="height:100%; width:100%">
+                        <img src="assets/img/cover.jpg" style="height:100%; width:100%">
                     </div>
                 </div>
                 <!-- /. ROW  -->

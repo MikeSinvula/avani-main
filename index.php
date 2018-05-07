@@ -83,7 +83,7 @@ include('db.php');
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<h1><a class="navbar-brand" href="index.php" style="color:purple">AVANI HOTEL &amp; <span style="color:purple" >RESORTS</span><p class="logo_w3l_agile_caption" style="color:purple">The Best Hotel Resort</p></a></h1>
+					<h1><a class="navbar-brand" href="index.php" style="color:purple">AVANI HOTEL &amp; <span style="color:purple" >RESORTS</span><p class="logo_w3l_agile_caption" style="color:purple">WINDHOEK NAMIBIA</p></a></h1>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
